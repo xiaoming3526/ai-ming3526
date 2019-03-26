@@ -1,5 +1,9 @@
 # 机器学习建议
 
+> 搜索微信公众号：'AI-ming3526'或者'计算机视觉这件小事' 获取更多计算机视觉机器学习干货
+>
+> csdn：https://blog.csdn.net/baidu_31657889/
+
 学习机器学习需要一定的数学基础，但是仅仅是一点数学基础，不要被这些吓坏了，各位都是大佬，拿起键盘就是干。
 
 我就根据自己的一点点经验来分析一下应该怎么学----
@@ -48,7 +52,7 @@
 
 [机器学习实战书籍](https://github.com/xiaoming3526/ai-ming3526/tree/master/books)
 
-[机器学习实战视频](ttp://cwiki.apachecn.org/pages/viewpage.action?pageId=8749100)
+[机器学习实战视频](cwiki.apachecn.org/pages/viewpage.action?pageId=8749100)
 
 ### 3.3、进阶
 
