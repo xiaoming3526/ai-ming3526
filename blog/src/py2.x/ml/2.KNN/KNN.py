@@ -150,6 +150,12 @@ def classify1(inX, dataSet, labels, K):
     # inx - dataset 使用了numpy broadcasting，见 https://docs.scipy.org/doc/numpy-1.13.0/user/basics.broadcasting.html
     # np.sum() 函数的使用见 https://docs.scipy.org/doc/numpy-1.13.0/reference/generated/numpy.sum.html
     # """
+    #当axis为0时,是压缩行,即将每一列的元素相加,将矩阵压缩为一行
+    #当axis为1时,是压缩列,即将每一行的元素相加,将矩阵压缩为一列
+    # >>> np.sum([[0, 1], [0, 5]], axis=0)
+    # array([0, 6])
+    # >>> np.sum([[0, 1], [0, 5]], axis=1)
+    # array([1, 5])
     dist = np.sum((inX - dataSet)**2, axis=1)**0.5
     
     # """
