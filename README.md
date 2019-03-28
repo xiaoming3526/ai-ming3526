@@ -1,4 +1,12 @@
-# 机器学习建议
+# 《机器学习实战》书籍、源码解析、数据集下载
+
+[机器学习实战书籍](https://github.com/xiaoming3526/ai-ming3526/tree/master/books)
+
+[源码详细解刨](https://github.com/xiaoming3526/ai-ming3526/tree/master/blog)
+
+[源码和数据集下载](https://github.com/xiaoming3526/ai-ming3526/tree/master/data/sourceData)
+
+## 机器学习建议
 
 > 搜索微信公众号：'AI-ming3526'或者'计算机视觉这件小事' 获取更多计算机视觉机器学习干货
 >
