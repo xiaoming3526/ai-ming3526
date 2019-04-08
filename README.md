@@ -1,4 +1,6 @@
-# 《机器学习实战》书籍、源码解析、数据集下载
+# 一、机器学习 ---xiaoming
+
+## 《机器学习实战》书籍、源码解析、数据集下载
 
 [机器学习实战书籍](https://github.com/xiaoming3526/ai-ming3526/tree/master/books)
 
@@ -76,4 +78,24 @@
 
 [Hung-yi Lee](http://speech.ee.ntu.edu.tw/~tlkagk/courses.html)
 
-当然这些国内都会有对应大佬有视频的翻译(b站) 感兴趣的自己找找
+当然这些国内都会有对应大佬有视频的翻译(b站) 感兴趣的自己找找	
+
+# 二、深度学习 kaijie-guo
+
+nlp学习
+
+
+
+## 项目负责人
+
+> ML
+
+[@xiaoming3526](https://github.com/xiaoming3526)
+
+> DL
+
+[@guokaijie]()
+
+## 免责声明 - 【只供学习参考】
+
+- 本项目纯粹出于学习目的
