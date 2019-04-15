@@ -165,11 +165,31 @@ def chooseBestFeatureToSplit(dataSet):
         # gain[信息增益]: 划分数据集前后的信息变化， 获取信息熵最大的值
         # 信息增益是熵的减少或者是数据无序度的减少。最后，比较所有特征中的信息增益，返回最好特征划分的索引值。
         infoGain = baseEntropy - newEntropy
-        print('infoGain=', infoGain, 'bestFeature=', i, baseEntropy, newEntropy)
+        #print('infoGain=', infoGain, 'bestFeature=', i, baseEntropy, newEntropy)
         if(infoGain > bestInfoGain):
             bestInfoGain = infoGain
             bestFeature = i
     # -----------选择最优特征的第一种方式 end------------------------------------
+    # # -----------选择最优特征的第二种方式 start------------------------------------
+    # # 计算初始香农熵
+    # base_entropy = calcShannonEnt(dataSet)
+    # best_info_gain = 0
+    # best_feature = -1
+    # # 遍历每一个特征
+    # for i in range(len(dataSet[0]) - 1):
+    #     # 对当前特征进行统计
+    #     feature_count = Counter([data[i] for data in dataSet])
+    #     # 计算分割后的香农熵
+    #     new_entropy = sum(feature[1] / float(len(dataSet)) * calcShannonEnt(splitDataSet(dataSet, i, feature[0])) \
+    #                    for feature in feature_count.items())
+    #     # 更新值
+    #     info_gain = base_entropy - new_entropy
+    #     print('No. {0} feature info gain is {1:.3f}'.format(i, info_gain))
+    #     if info_gain > best_info_gain:
+    #         best_info_gain = info_gain
+    #         best_feature = i
+    # return best_feature
+    # # -----------选择最优特征的第二种方式 end------------------------------------
     return bestFeature
 
 '''
@@ -203,10 +223,13 @@ def majorityCnt(classList):
 @return: 
 '''
 def createTree(dataSet, labels):
+    #返回数据集中最后一列的值
+    # eg classList:['yes', 'yes', 'no', 'no', 'no']
     classList = [example[-1] for example in dataSet]
     # 如果数据集的最后一列的第一个值出现的次数=整个集合的数量，也就说只有一个类别，就只直接返回结果就行
     # 第一个停止条件：所有的类标签完全相同，则直接返回该类标签。
     # count() 函数是统计括号中的值在list中出现的次数
+    # eg: classList:['yes', 'yes'] classList.count(classList[0])== len(classList)=2直接返回'yes'
     if classList.count(classList[0]) == len(classList):
         return classList[0]
     # 如果数据集只有1列，那么最初出现label次数最多的一类，作为结果
@@ -225,13 +248,14 @@ def createTree(dataSet, labels):
     del(labels[bestFeat])
     # 取出最优列，然后它的branch做分类
     featValues = [example[bestFeat] for example in dataSet]
+    # 获取剔重后的集合，使用set对list数据进行去重
     uniqueVals = set(featValues)
     for value in uniqueVals:
         # 求出剩余的标签label
         subLabels = labels[:]
         # 遍历当前选择特征包含的所有属性值，在每个数据集划分上递归调用函数createTree()
         myTree[bestFeatLabel][value] = createTree(splitDataSet(dataSet, bestFeat, value), subLabels)
-        #print('myTree', value, myTree)
+        print('myTree', value, myTree)
     return myTree
 
 def classify(inputTree, featLabels, testVec):
@@ -302,13 +326,13 @@ def fishTest():
     myTree = createTree(myData, copy.deepcopy(labels))
     #print(myTree)
     # [1, 1]表示要取的分支上的节点位置，对应的结果值
-    print(classify(myTree, labels, [1, 1]))
+    # print(classify(myTree, labels, [1, 1]))
     
-    # 获得树的高度
-    print(get_tree_height(myTree))
+    # # 获得树的高度
+    # print(get_tree_height(myTree))
 
-    # 画图可视化展现
-    #dtPlot.createPlot(myTree)
+    # # 画图可视化展现
+    dtPlot.createPlot(myTree)
 
 if __name__ == '__main__':
     fishTest()
